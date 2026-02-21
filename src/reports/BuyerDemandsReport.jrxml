@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC
+    "-//JasperReports//DTD Report Design//EN"
+    "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport
+    name="BuyerDemandsReport"
+    pageWidth="595"
+    pageHeight="842"
+    columnWidth="555"
+    leftMargin="20"
+    rightMargin="20"
+    topMargin="20"
+    bottomMargin="20">
+
+    <!-- PARAMETERS -->
+    <parameter name="REPORT_TITLE" class="java.lang.String"/>
+    <parameter name="GENERATED_BY" class="java.lang.String"/>
+
+    <!-- FIELDS -->
+    <field name="id" class="java.lang.Integer"/>
+    <field name="buyerName" class="java.lang.String"/>
+    <field name="cropName" class="java.lang.String"/>
+    <field name="quantityKg" class="java.lang.Double"/>
+    <field name="qualityGrade" class="java.lang.String"/>
+    <field name="neededBy" class="java.sql.Date"/>
+    <field name="status" class="java.lang.String"/>
+
+    <!-- TITLE -->
+    <title>
+        <band height="40">
+            <textField>
+                <reportElement x="0" y="0" width="555" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{REPORT_TITLE}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+
+    <!-- COLUMN HEADER -->
+    <columnHeader>
+        <band height="20">
+            <staticText><reportElement x="0" y="0" width="40" height="20"/><text><![CDATA[ID]]></text></staticText>
+            <staticText><reportElement x="40" y="0" width="120" height="20"/><text><![CDATA[Buyer]]></text></staticText>
+            <staticText><reportElement x="160" y="0" width="100" height="20"/><text><![CDATA[Crop]]></text></staticText>
+            <staticText><reportElement x="260" y="0" width="80" height="20"/><text><![CDATA[Qty]]></text></staticText>
+            <staticText><reportElement x="340" y="0" width="100" height="20"/><text><![CDATA[Needed By]]></text></staticText>
+            <staticText><reportElement x="440" y="0" width="115" height="20"/><text><![CDATA[Status]]></text></staticText>
+        </band>
+    </columnHeader>
+
+    <!-- DETAIL -->
+    <detail>
+        <band height="20">
+            <textField><reportElement x="0" y="0" width="40" height="20"/><textFieldExpression><![CDATA[$F{id}]]></textFieldExpression></textField>
+            <textField><reportElement x="40" y="0" width="120" height="20"/><textFieldExpression><![CDATA[$F{buyerName}]]></textFieldExpression></textField>
+            <textField><reportElement x="160" y="0" width="100" height="20"/><textFieldExpression><![CDATA[$F{cropName}]]></textFieldExpression></textField>
+            <textField><reportElement x="260" y="0" width="80" height="20"/><textFieldExpression><![CDATA[$F{quantityKg}]]></textFieldExpression></textField>
+            <textField><reportElement x="340" y="0" width="100" height="20"/><textFieldExpression><![CDATA[$F{neededBy}]]></textFieldExpression></textField>
+            <textField><reportElement x="440" y="0" width="115" height="20"/><textFieldExpression><![CDATA[$F{status}]]></textFieldExpression></textField>
+        </band>
+    </detail>
+
+</jasperReport>
